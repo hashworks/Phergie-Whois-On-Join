@@ -1,0 +1,21 @@
+{
+    "name": "hashworks/phergie-whois-on-join-plugin",
+    "description": "Phergie plugin to whois a user on join and handle the result.",
+    "keywords": [ "phergie", "irc", "bot", "plugin", "whois", "join", "handler" ],
+    "license": "GNU GPL v3.0",
+    "support": {
+        "email": "admin@hashworks.net",
+        "irc": "irc://irc.freenode.net/phergie",
+        "issues": "https://github.com/hashworks/PhergieWhoisOnJoin/issues",
+        "source": "https://github.com/hashworks/PhergieWhoisOnJoin"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "phergie/phergie-irc-bot-react": "~1"
+    },
+    "autoload": {
+        "psr-4": {
+            "hashworks\\Phergie\\Plugin\\WhoisOnJoin\\": "src"
+        }
+    }
+}
