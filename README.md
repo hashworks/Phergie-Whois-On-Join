@@ -21,7 +21,7 @@ See Phergie documentation for more information on
 ## Configuration
 
 ```php
-// Required. Simple example.
+// Required. Simple example, give voice to every user who joins the channel.
 new \hashworks\Phergie\Plugin\WhoisOnJoin\Plugin(function(\hashworks\Phergie\Plugin\WhoisOnJoin\WhoisResult $whoisResult) {
     $whoisResult->setChannelMode('+v', $whoisResult->getNick());
 })
