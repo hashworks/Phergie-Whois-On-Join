@@ -45,7 +45,7 @@ class Plugin extends AbstractPlugin {
 			return;
 		}
 
-		$user = new whoisResult($event, $queue);
+		$user = new WhoisResult($event, $queue);
 		$user->setNick($nick);
 		$user->setUsername($event->getUsername());
 		$user->setHost($event->getHost());
