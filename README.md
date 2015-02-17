@@ -28,6 +28,15 @@ new \hashworks\Phergie\Plugin\WhoisOnJoin\Plugin(function(\hashworks\Phergie\Plu
 ```
 
 ```php
+// Kick everyone who isn't using a secure connection.
+new \hashworks\Phergie\Plugin\WhoisOnJoin\Plugin(function(\hashworks\Phergie\Plugin\WhoisOnJoin\WhoisResult $whoisResult) {
+    if (!$whoisResult->hasSecureConnection()) {
+        $whoisResult->kick('This channel requires a secure connection.');
+    }
+})
+```
+
+```php
 // This is how I use it. Kickban every user who is in 13 channels or more. Ban based on nick and username, replace numbers with question marks.
 new \hashworks\Phergie\Plugin\WhoisOnJoin\Plugin(function(\hashworks\Phergie\Plugin\WhoisOnJoin\WhoisResult $whoisResult) {
     if (count($whoisResult->getChannels()) >= 13) {
