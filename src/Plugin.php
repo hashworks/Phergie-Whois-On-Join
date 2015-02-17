@@ -58,9 +58,11 @@ class Plugin extends AbstractPlugin {
 				$user->setRealname($event->getParams()[6]);
 			}
 			$listeners = array(
-				'irc.received.rpl_whoisregnick' => function() use ($user) {
-					$user->setIdentified(true);
-				}, // 307 (Bahamut, Unreal)
+				'irc.received.307' => function(ServerEvent $event) use ($user) {
+					if (strpos($event->getMessage(), 'identi') !== false || strpos($event->getMessage(), 'regist') !== false) {
+						$user->setIdentified(true);
+					}
+				}, // 307 [rpl_whoisregnick, not RFC standard]
 				'irc.received.rpl_whoisserver' => function(ServerEvent $event) use ($user) {
 					if (isset($event->getParams()[3])) {
 						$user->setServer($event->getParams()[3]);
@@ -74,9 +76,11 @@ class Plugin extends AbstractPlugin {
 						$user->setChannels(explode(' ', $event->getParams()[3]));
 					}
 				}, // 319
-				'irc.received.rpl_whoissecure' => function() use ($user) {
-					$user->setSecureConnection(true);
-				} // 671
+				'irc.received.671' => function(ServerEvent $event) use ($user) {
+					if (strpos($event->getMessage(), 'secure') !== false) {
+						$user->setSecureConnection(true);
+					}
+				} // 671 [rpl_whoissecure, not RFC standard]
 			);
 
 			foreach ($listeners as $event => $listener) {
