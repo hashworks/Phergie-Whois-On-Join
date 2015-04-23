@@ -2,6 +2,10 @@
 
 [Phergie](http://github.com/phergie/phergie-irc-bot-react/) plugin to whois a user on join and handle the result.
 
+
+## Abandoned!
+This plugin is abandoned. Further developement will continue in [PhergieUserWatch](https://github.com/hashworks/PhergieUserWatch).
+
 ## About
 
 This plugin was originally written to keep the growing amount of chan-whore-monitoring-bots in the Rizon network out of channels.
